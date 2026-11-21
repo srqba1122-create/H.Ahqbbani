@@ -2,27 +2,23 @@
 #include <iostream>
 using namespace std;
 
-long long factorial(int n)
+void printDescending(int n)
 {
-    if (n < 0)
-        return -1; // قيمة غير صالحة
+    if (n < 1)
+        return;
 
-    if (n == 0 || n == 1)
-        return 1; // حالة التوقف
-
-    return n * factorial(n - 1);
+    cout << n << " ";
+    printDescending(n - 1);
 }
 
 int main()
 {
     int number;
-    cout << "Enter a non-negative number: ";
+    cout << "Enter a positive number: ";
     cin >> number;
 
-    if (number < 0)
-        cout << "Please enter a non-negative number." << endl;
-    else
-        cout << "Factorial = " << factorial(number) << endl;
+    printDescending(number);
+    cout << endl;
 
     system("pause");
     return 0;
